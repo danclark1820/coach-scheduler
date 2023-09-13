@@ -1,1 +1,8 @@
 <h1>Slots</h1>
+<% @slots.each do |slot| %>
+  <div>Coach: <%= slot.coach.email %></div>
+  <div>Slot Time: <%= slot.booking %></div>
+  <%= form_with url: "/slots/#{slot.id}", method: :patch do |f| %>
+    <%= f.submit "Book" %>
+  <% end %>
+<% end %>

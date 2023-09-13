@@ -1,0 +1,10 @@
+<h1>Upcoming Slots</h1>
+<% @upcoming_slots.each do |slot| %>
+  <p>Booked: <%= slot.student&.email %><br>
+  <%= slot.booking%>
+<% end %>
+
+<%= form_with url: "/slots", method: :post do |f| %>
+  <%= f.datetime_local_field :booking %>
+  <%= f.submit "Create Availablity" %>
+<% end %>
